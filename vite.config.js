@@ -17,6 +17,9 @@ function GetFilesArray(query) {
 // Page JS Files
 const pageJsFiles = GetFilesArray('resources/assets/js/*.js');
 
+// SGR - Módulo Menú JS Files
+const menuJsFiles = GetFilesArray('resources/assets/js/menu/*.js');
+
 // Processing Vendor JS Files
 const vendorJsFiles = GetFilesArray('resources/assets/vendor/js/*.js');
 
@@ -58,6 +61,7 @@ export default defineConfig({
         'resources/assets/css/demo.css',
         'resources/js/app.js',
         ...pageJsFiles,
+        ...menuJsFiles,
         ...vendorJsFiles,
         ...LibsJsFiles,
         'resources/js/laravel-user-management.js', // Processing Laravel User Management CRUD JS File
