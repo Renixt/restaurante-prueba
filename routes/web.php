@@ -117,6 +117,15 @@ use App\Http\Controllers\layouts\WithoutMenu;
 use App\Http\Controllers\layouts\WithoutNavbar;
 use App\Http\Controllers\maps\Leaflet;
 use App\Http\Controllers\menu\MenuItemController;
+use App\Http\Controllers\inventory\InventoryItemController;
+use App\Http\Controllers\inventory\RecipeController;
+use App\Http\Controllers\mesas\MesaController;
+use App\Http\Controllers\orders\OrderController;
+use App\Http\Controllers\admin\ReportController;
+use App\Http\Controllers\admin\RoleController;
+use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\suppliers\PurchaseOrderController;
+use App\Http\Controllers\suppliers\SupplierController;
 use App\Http\Controllers\modal\ModalExample;
 use App\Http\Controllers\pages\AccountSettingsAccount;
 use App\Http\Controllers\pages\AccountSettingsBilling;
@@ -360,11 +369,58 @@ Route::get('/maps/leaflet', [Leaflet::class, 'index'])->name('maps-leaflet');
 Route::get('/laravel/user-management', [UserManagement::class, 'UserManagement'])->name('laravel-example-user-management');
 Route::resource('/user-list', UserManagement::class);
 
+// SGR - Módulo Inventario
+Route::get('/inventory-data', [InventoryItemController::class, 'data'])->name('inventory.data');
+Route::get('/inventory/{inventory}/movements', [InventoryItemController::class, 'movements'])->name('inventory.movements');
+Route::resource('/inventory', InventoryItemController::class);
+
+// SGR - Módulo Recetas
+Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index');
+Route::get('/recipes/{menuItem}', [RecipeController::class, 'edit'])->name('recipes.edit');
+Route::put('/recipes/{menuItem}', [RecipeController::class, 'update'])->name('recipes.update');
+
+// SGR - Módulo Proveedores
+Route::get('/suppliers-data', [SupplierController::class, 'data'])->name('suppliers.data');
+Route::resource('/suppliers', SupplierController::class);
+
+// SGR - Módulo Pedidos a Proveedores
+Route::get('/purchase-orders-data', [PurchaseOrderController::class, 'data'])->name('purchase-orders.data');
+Route::patch('/purchase-orders/{purchaseOrder}/status/{newStatus}', [PurchaseOrderController::class, 'updateStatus'])->name('purchase-orders.status');
+Route::resource('/purchase-orders', PurchaseOrderController::class);
+
+// SGR - Módulo Mesas
+Route::get('/mesas-data', [MesaController::class, 'data'])->name('mesas.data');
+Route::resource('/mesas', MesaController::class);
+
 // SGR - Módulo Menú
 Route::get('/menu-data', [MenuItemController::class, 'data'])->name('menu.data');
 Route::resource('/menu', MenuItemController::class)->parameters([
     'menu' => 'menu_item',
 ]);
+
+// SGR - Módulo Usuarios
+Route::get('/users-data', [UserController::class, 'data'])->name('users.data');
+Route::resource('/users', UserController::class);
+
+// SGR - Módulo Roles
+Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
+Route::get('/roles/{role}/edit', [RoleController::class, 'edit'])->name('roles.edit');
+Route::put('/roles/{role}', [RoleController::class, 'update'])->name('roles.update');
+
+// SGR - Módulo Reportes
+Route::prefix('reports')->name('reports.')->group(function () {
+    Route::get('/',                [ReportController::class, 'index'])->name('index');
+    Route::get('/sales',           [ReportController::class, 'sales'])->name('sales');
+    Route::get('/top-dishes',      [ReportController::class, 'topDishes'])->name('top-dishes');
+    Route::get('/low-stock',       [ReportController::class, 'lowStock'])->name('low-stock');
+    Route::get('/supplier-delays', [ReportController::class, 'supplierDelays'])->name('supplier-delays');
+});
+
+// SGR - Módulo Órdenes
+Route::get('/orders-data', [OrderController::class, 'data'])->name('orders.data');
+Route::get('/cocina', [OrderController::class, 'cocina'])->name('orders.cocina');
+Route::patch('/orders/{order}/status', [OrderController::class, 'updateStatus'])->name('orders.status');
+Route::resource('/orders', OrderController::class);
 
 Route::middleware([
     'auth:sanctum',

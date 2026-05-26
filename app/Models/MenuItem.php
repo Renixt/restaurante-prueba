@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MenuItem extends Model
 {
@@ -19,6 +20,11 @@ class MenuItem extends Model
         'precio'     => 'decimal:2',
         'disponible' => 'boolean',
     ];
+
+    public function recipes(): HasMany
+    {
+        return $this->hasMany(Recipe::class);
+    }
 
     public static array $categorias = [
         'Entradas',

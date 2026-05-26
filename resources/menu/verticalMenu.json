@@ -140,6 +140,115 @@
       ]
     },
     {
+      "menuHeader": "SGR — Restaurante"
+    },
+    {
+      "name": "Usuarios",
+      "icon": "menu-icon icon-base ti tabler-users",
+      "slug": "sgr-users",
+      "submenu": [
+        { "url": "users",        "name": "Todos los usuarios", "slug": "users.index" },
+        { "url": "users/create", "name": "Nuevo usuario",      "slug": "users.create" }
+      ]
+    },
+    {
+      "name": "Roles",
+      "icon": "menu-icon icon-base ti tabler-shield-lock",
+      "slug": "sgr-roles",
+      "submenu": [
+        { "url": "roles", "name": "Roles y permisos", "slug": "roles.index" }
+      ]
+    },
+    {
+      "name": "Reportes",
+      "icon": "menu-icon icon-base ti tabler-chart-bar",
+      "slug": "sgr-reports",
+      "submenu": [
+        { "url": "reports",                "name": "Inicio",             "slug": "reports.index" },
+        { "url": "reports/sales",          "name": "Ventas",             "slug": "reports.sales" },
+        { "url": "reports/top-dishes",     "name": "Platillos",          "slug": "reports.top-dishes" },
+        { "url": "reports/low-stock",      "name": "Stock bajo",         "slug": "reports.low-stock" },
+        { "url": "reports/supplier-delays","name": "Pedidos vencidos",   "slug": "reports.supplier-delays" }
+      ]
+    },
+    {
+      "name": "Inventario",
+      "icon": "menu-icon icon-base ti tabler-box",
+      "slug": "inventory",
+      "submenu": [
+        { "url": "inventory",        "name": "Insumos",        "slug": "inventory.index" },
+        { "url": "inventory/create", "name": "Nuevo Insumo",   "slug": "inventory.create" },
+        { "url": "recipes",          "name": "Recetas",        "slug": "recipes.index" }
+      ]
+    },
+    {
+      "name": "Proveedores",
+      "icon": "menu-icon icon-base ti tabler-truck",
+      "slug": "suppliers",
+      "submenu": [
+        { "url": "suppliers",               "name": "Proveedores",    "slug": "suppliers.index" },
+        { "url": "suppliers/create",        "name": "Nuevo Proveedor","slug": "suppliers.create" },
+        { "url": "purchase-orders",         "name": "Pedidos",        "slug": "purchase-orders.index" },
+        { "url": "purchase-orders/create",  "name": "Nuevo Pedido",   "slug": "purchase-orders.create" }
+      ]
+    },
+    {
+      "name": "Mesas",
+      "icon": "menu-icon icon-base ti tabler-armchair",
+      "slug": "mesas",
+      "submenu": [
+        {
+          "url": "mesas",
+          "name": "Todas las Mesas",
+          "slug": "mesas.index"
+        },
+        {
+          "url": "mesas/create",
+          "name": "Nueva Mesa",
+          "slug": "mesas.create"
+        }
+      ]
+    },
+    {
+      "name": "Menú",
+      "icon": "menu-icon icon-base ti tabler-tools-kitchen-2",
+      "slug": "menu",
+      "submenu": [
+        {
+          "url": "menu",
+          "name": "Platillos",
+          "slug": "menu.index"
+        },
+        {
+          "url": "menu/create",
+          "name": "Nuevo Platillo",
+          "slug": "menu.create"
+        }
+      ]
+    },
+    {
+      "name": "Órdenes",
+      "icon": "menu-icon icon-base ti tabler-receipt-2",
+      "slug": "orders",
+      "submenu": [
+        {
+          "url": "orders",
+          "name": "Todas las Órdenes",
+          "slug": "orders.index"
+        },
+        {
+          "url": "orders/create",
+          "name": "Nueva Orden",
+          "slug": "orders.create"
+        },
+        {
+          "url": "cocina",
+          "name": "Vista Cocina",
+          "slug": "orders.cocina"
+        }
+      ]
+    },
+    {
       "menuHeader": "Apps & Pages"
     },
     {

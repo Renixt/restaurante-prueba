@@ -20,6 +20,27 @@ const pageJsFiles = GetFilesArray('resources/assets/js/*.js');
 // SGR - Módulo Menú JS Files
 const menuJsFiles = GetFilesArray('resources/assets/js/menu/*.js');
 
+// SGR - Módulo Órdenes JS Files
+const ordersJsFiles = GetFilesArray('resources/assets/js/orders/*.js');
+
+// SGR - Módulo Mesas JS Files
+const mesasJsFiles = GetFilesArray('resources/assets/js/mesas/*.js');
+
+// SGR - Módulo Inventario JS Files
+const inventoryJsFiles = GetFilesArray('resources/assets/js/inventory/*.js');
+
+// SGR - Módulo Proveedores JS Files
+const suppliersJsFiles = GetFilesArray('resources/assets/js/suppliers/*.js');
+
+// SGR - Módulo Pedidos JS Files
+const purchaseOrdersJsFiles = GetFilesArray('resources/assets/js/purchase-orders/*.js');
+
+// SGR - Módulo Admin JS Files
+const adminJsFiles = GetFilesArray('resources/assets/js/admin/*.js');
+
+// SGR - Módulo Reportes JS Files
+const reportsJsFiles = GetFilesArray('resources/assets/js/reports/*.js');
+
 // Processing Vendor JS Files
 const vendorJsFiles = GetFilesArray('resources/assets/vendor/js/*.js');
 
@@ -62,6 +83,13 @@ export default defineConfig({
         'resources/js/app.js',
         ...pageJsFiles,
         ...menuJsFiles,
+        ...ordersJsFiles,
+        ...mesasJsFiles,
+        ...inventoryJsFiles,
+        ...suppliersJsFiles,
+        ...purchaseOrdersJsFiles,
+        ...adminJsFiles,
+        ...reportsJsFiles,
         ...vendorJsFiles,
         ...LibsJsFiles,
         'resources/js/laravel-user-management.js', // Processing Laravel User Management CRUD JS File
